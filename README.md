@@ -60,6 +60,7 @@
 | ---------       | ---------- | ------------------------------ |
 | post_code       | string     | null: false                    |
 | city_code       | string     | null: false                    |
+| area_code       | string     | null: false                    |
 | post_number     | string     | null: false                    |
 | building_name   | string     |                                | 
 | phone_number    | string     | null: false                    |
