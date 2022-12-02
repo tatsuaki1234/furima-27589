@@ -2,14 +2,14 @@
 
 ## users テーブル
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false               |
-| email              | string | null: false, unique: true | #ユニーク制約  unique: trueテーブル内に、同じ情報のレコードの保存を制限するための制約。
-| password           | string | null: false               |              emailアドレスを被らせないように実装したいときに使う
-| name(kanji)        | string | null: false               |
-| name(kana)         | string | null: false               |
-| day_of_birth       | string | null: false               |
+| Column             | Type     | Options                   |
+| ------------------ | -------- | ------------------------- |
+| nickname           | string   | null: false               |
+| email              | string   | null: false, unique: true | #ユニーク制約  unique: trueテーブル内に、同じ情報のレコードの保存を制限するための制約。
+| password           | string   | null: false               |              emailアドレスを被らせないように実装したいときに使う
+| name(kanji)        | string   | null: false               |
+| name(kana)         | string   | null: false               |
+| day_of_birth       | datetime | null: false               |
 
 ### Association
 
@@ -22,16 +22,16 @@
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
-| image      | text       | null: false                    |
 | name       | string     | null: false                    |
 | content    | text       | null: false                    |
-| price      | string     | null: false                    |
-| user       | references | null: false, foreign_key: true |
+| area_id    | integer    | null: false, foreign_key: true |
+| price      | integer    | null: false                    |
+| user_id    | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one    :oder
+- has_one :oder
 
 
 
@@ -41,10 +41,8 @@
 
 | Column          | Type       | Options                        |
 | ---------       | ---------- | ------------------------------ |
-| wallet_number   | string     | null: false                    |
-| wallet_date     | string     | null: false                    |
-| wallet_code     | string     | null: false                    |
-| item            | references | null: false, foreign_key: true |
+| user_id         | references | null: false, foreign_key: true |
+| item_id         | references | null: false, foreign_key: true |
 
 ### Association
 
