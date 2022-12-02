@@ -5,8 +5,8 @@
 | Column             | Type     | Options                   |
 | ------------------ | -------- | ------------------------- |
 | nickname           | string   | null: false               |
-| email              | string   | null: false, unique: true | #ユニーク制約  unique: trueテーブル内に、同じ情報のレコードの保存を制限するための制約。
-| password           | string   | null: false               |              emailアドレスを被らせないように実装したいときに使う
+| email              | string   | null: false, unique: true | 
+| password           | string   | null: false               |
 | name(kanji)        | string   | null: false               |
 | name(kana)         | string   | null: false               |
 | day_of_birth       | datetime | null: false               |
@@ -20,13 +20,17 @@
 
 ## items テーブル
 
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| name       | string     | null: false                    |
-| content    | text       | null: false                    |
-| area_id    | integer    | null: false, foreign_key: true |
-| price      | integer    | null: false                    |
-| user_id    | references | null: false, foreign_key: true |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| name         | string     | null: false                    |
+| content      | text       | null: false                    |
+| category_id  | integer    | null: false, foreign_key: true |
+| condition_id | integer    | null: false, foreign_key: true |
+| postage_id   | integer    | null: false, foreign_key: true |
+| area_id      | integer    | null: false, foreign_key: true |
+| send_id      | integer    | null: false, foreign_key: true |
+| price        | integer    | null: false                    |
+| user_id      | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -57,7 +61,7 @@
 | post_code       | string     | null: false                    |
 | city_code       | string     | null: false                    |
 | post_number     | string     | null: false                    |
-| building_name   | string     |                                | #一軒家の場合、建物名はない。空でも登録できようにする。
+| building_name   | string     |                                | 
 | phone_number    | string     | null: false                    |
 | oder_id         | references | null: false, foreign_key: true |
 
@@ -70,11 +74,11 @@
 
 
 
+#ユニーク制約  unique: trueテーブル内に、同じ情報のレコードの保存を制限するための制約。
+              emailアドレスを被らせないように実装したいときに使う
 
 
-
-
-
+#一軒家の場合、建物名はない。空でも登録できようにする。
 
 
 モデル
