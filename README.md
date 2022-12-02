@@ -14,7 +14,7 @@
 ### Association
 
 - has_many :items
-- has_many :comments
+- has_many :oders
 
 
 
@@ -25,34 +25,19 @@
 | image      | text       | null: false                    |
 | name       | string     | null: false                    |
 | content    | text       | null: false                    |
+| price      | string     | null: false                    |
 | user       | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many   :comments
-- has_one    :buy
-
-
-
-## comments テーブル
-
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| content   | text       | null: false                    |
-| user      | references | null: false, foreign_key: true |
-| item      | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :item
+- has_one    :oder
 
 
 
 
 
-## buys テーブル
+## oders テーブル
 
 | Column          | Type       | Options                        |
 | ---------       | ---------- | ------------------------------ |
@@ -76,13 +61,12 @@
 | post_number     | string     | null: false                    |
 | building_name   | string     |                                | #一軒家の場合、建物名はない。空でも登録できようにする。
 | phone_number    | string     | null: false                    |
-| buy             | references | null: false, foreign_key: true |
+| oder_id         | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :user
-- has_one    :address
+- belongs_to :oder
 
 
 
