@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :oders
+- has_many :orders
 
 
 
@@ -26,24 +26,24 @@
 | ------------ | ---------- | ------------------------------ |
 | name         | string     | null: false                    |
 | content      | text       | null: false                    |
-| category_id  | integer    | null: false, foreign_key: true |
-| condition_id | integer    | null: false, foreign_key: true |
-| postage_id   | integer    | null: false, foreign_key: true |
-| area_id      | integer    | null: false, foreign_key: true |
-| send_id      | integer    | null: false, foreign_key: true |
+| category_id  | integer    | null: false,                   |
+| condition_id | integer    | null: false,                   |
+| postage_id   | integer    | null: false,                   |
+| area_id      | integer    | null: false,                   |
+| send_id      | integer    | null: false,                   |
 | price        | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :oder
+- has_one :order
 
 
 
 
 
-## oders テーブル
+## orders テーブル
 
 | Column          | Type       | Options                        |
 | ---------       | ---------- | ------------------------------ |
@@ -63,16 +63,16 @@
 | ---------       | ---------- | ------------------------------ |
 | post_code       | string     | null: false                    |
 | city_code       | string     | null: false                    |
-| area_id         | string     | null: false                    |
+| area_id         | integer    | null: false                    |
 | post_number     | string     | null: false                    |
 | building_name   | string     |                                | 
 | phone_number    | string     | null: false                    |
-| oder            | references | null: false, foreign_key: true |
+| order           | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :oder
+- belongs_to :order
 
 
 
