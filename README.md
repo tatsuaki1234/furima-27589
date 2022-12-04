@@ -6,10 +6,12 @@
 | ------------------ | -------- | ------------------------- |
 | nickname           | string   | null: false               |
 | email              | string   | null: false, unique: true | 
-| password           | string   | null: false               |
-| name(kanji)        | string   | null: false               |
-| name(kana)         | string   | null: false               |
-| day_of_birth       | datetime | null: false               |
+| encrypted_password | string   | null: false               |
+| family_name_kanji  | string   | null: false               |
+| first_name_kanji   | string   | null: false               |
+| family_name_kana   | string   | null: false               |
+| first_name_kana    | string   | null: false               |
+| day_of_birth       | date     | null: false               |
 
 ### Association
 
@@ -30,7 +32,7 @@
 | area_id      | integer    | null: false, foreign_key: true |
 | send_id      | integer    | null: false, foreign_key: true |
 | price        | integer    | null: false                    |
-| user_id      | references | null: false, foreign_key: true |
+| user         | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -45,11 +47,12 @@
 
 | Column          | Type       | Options                        |
 | ---------       | ---------- | ------------------------------ |
-| user_id         | references | null: false, foreign_key: true |
-| item_id         | references | null: false, foreign_key: true |
+| user            | references | null: false, foreign_key: true |
+| item            | references | null: false, foreign_key: true |
 
 ### Association
 
+- belongs_to :user
 - belongs_to :item
 - has_one    :address
 
@@ -60,11 +63,11 @@
 | ---------       | ---------- | ------------------------------ |
 | post_code       | string     | null: false                    |
 | city_code       | string     | null: false                    |
-| area_code       | string     | null: false                    |
+| area_id         | string     | null: false                    |
 | post_number     | string     | null: false                    |
 | building_name   | string     |                                | 
 | phone_number    | string     | null: false                    |
-| oder_id         | references | null: false, foreign_key: true |
+| oder            | references | null: false, foreign_key: true |
 
 
 ### Association
