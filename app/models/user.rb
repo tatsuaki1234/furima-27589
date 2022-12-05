@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :encrypted_password, presence: true, length: { mimimum: 6 }
+  # validates :encrypted_password, presence: true, length: { mimimum: 6 }
 end
