@@ -5,4 +5,24 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # validates :encrypted_password, presence: true, length: { mimimum: 6 }
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze, message: 'は英字と数字の組み合わせで入力して下さい。' }
+  # { with: /\A[a-zA-Z0-9]+\z/, message: 'は英字と数字の組み合わせで入力して下さい。' }
+  validates :nickname, presence: true
+  validates :family_name_kanji, presence: true, format: { with: /\A[一-龥ぁ-ん]/, message: 'は漢字で入力して下さい。' }
+  validates :first_name_kanji, presence: true, format: { with: /\A[一-龥ぁ-ん]/, message: 'は漢字で入力して下さい。' }
+  validates :family_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  validates :first_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  validates :day_of_birth, presence: true
 end
+
+
+
+
+# 全角カタカナ
+# /\A[ァ-ヶー－]+\z/
+
+# 漢字
+# /\A[一-龥]+\z/
+
+# format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'
+
