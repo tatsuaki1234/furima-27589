@@ -30,3 +30,5 @@ end
 # password doesnt mach
 # passwordは6文字以上であること
 # はすでにdeviseで初期設定されている
+
+postgres://furima_production_ot06_user:AnWKA4PcJtWcxy7r6KfMHgPDpMR59shB@dpg-ce7cih9a6gdnvfsspi3g-a/furima_production_ot06
