@@ -14,8 +14,10 @@ class User < ApplicationRecord
   validates :day_of_birth, presence: true
 end
 
-/\A[ぁ-んァ-ヶ一-龥々ー]+\z/
-/\A[ぁ-んァ-ン一-龥]/
+
+
+# /\A[ぁ-んァ-ヶ一-龥々ー]+\z/
+# /\A[ぁ-んァ-ン一-龥]/
 
 
 # 全角カタカナ
