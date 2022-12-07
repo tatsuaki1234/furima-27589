@@ -3,7 +3,10 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def new(item_params)
+  def new
+  end
+
+  def create(item_params)
   end
 
 
