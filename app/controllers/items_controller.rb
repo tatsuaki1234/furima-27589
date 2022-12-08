@@ -11,10 +11,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-
     if @item.save
       redirect_to root_path
     else
+      # @item = Item.find(params[:image])
+      # @item = Item.find(item_params)
       render :new
     end
   end

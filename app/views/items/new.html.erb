@@ -1,7 +1,7 @@
 <div class="items-sell-contents">
   <header class="items-sell-header">
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
-
+  <script src="new.js"></script>
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
@@ -23,6 +23,7 @@
           クリックしてファイルをアップロード
         </p>
         <%= f.file_field :image, id:"item-image" %>
+        <%# <%= form.hidden_field :image_cache %>
       </div>
     </div>
     <%# /商品画像 %>
