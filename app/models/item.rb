@@ -10,8 +10,8 @@ class Item < ApplicationRecord
   has_one :order
   has_one_attached :image
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category
+  e ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :categoryxtend
   belongs_to :condition
   belongs_to :postage
   belongs_to :area
@@ -21,7 +21,7 @@ class Item < ApplicationRecord
     validates :name
     validates :content
     validates :image
-    with_options  numericality: { other_than: 1 , message: "can't be blank"} do
+    with_options  numericality: { other_than: 0 , message: "can't be blank"} do
       validates :category_id
       validates :condition_id
       validates :postage_id
