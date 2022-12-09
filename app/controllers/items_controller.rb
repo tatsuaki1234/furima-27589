@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [ :index ]
   def index
-    @items = Item.all
+    # @items = Item.all
   end
 
   def new
@@ -27,9 +27,6 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :image, :content, :category_id, :condition_id, :postage_id, :area_id, :scheduled_delivery_id, :price).merge(user_id: current_user.id)
   end
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-  end
 end
 
 # -----------------------------------------------------------------------
@@ -63,7 +60,9 @@ end
 # end
 
 
-
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  # end
 
 
 # def index
