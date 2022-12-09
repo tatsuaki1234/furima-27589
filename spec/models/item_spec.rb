@@ -9,7 +9,6 @@ RSpec.describe Item, type: :model do
   describe '商品新規登録' do
     context '商品新規登録できるとき' do
       it 'name、content、image、category_id、condition_id、postage_id、area_id、scheduled_delivery_id、priceが存在すれば登録できる' do
-        # binding.pry
         expect(@item).to be_valid
       end
 
@@ -73,6 +72,11 @@ RSpec.describe Item, type: :model do
           @item.price = '12345６78'
           @item.valid?
           expect(@item.errors.full_messages).to include("Price is not a number")
+        end   
+        it '価格に半角少数字が含まれている場合は出品できない' do
+          @item.price = '100.5'
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Price must be an integer")
         end   
         it 'userが紐付いていなければ出品できない' do
           @item.user = nil
