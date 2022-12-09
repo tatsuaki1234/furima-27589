@@ -19,6 +19,7 @@ class Item < ApplicationRecord
   validates :postage_id, presence: true
   validates :area_id, presence: true
   validates :scheduled_delivery_id, presence: true
+  validates :price, presence: true
 
 
     #ジャンルの選択が「---」の時は保存できないようにする
