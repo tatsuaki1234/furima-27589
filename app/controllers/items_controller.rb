@@ -35,3 +35,4 @@ end
 
 
 
+# edit_item GET    /items/:id/edit(.:format)                    items#edit
