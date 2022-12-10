@@ -22,10 +22,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  # def edit
-  #   @item = Item.find(params[:id])
-  # end
-
   def edit
     @item = Item.find(params[:id])
     unless @item.user == current_user
@@ -52,4 +48,3 @@ end
 
 
 
-# edit_item GET    /items/:id/edit(.:format)                    items#edit
