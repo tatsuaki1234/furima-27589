@@ -5,7 +5,7 @@
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with model: @item, local: true do |f| %>
-    <%# script src="new.js" %><%# /script %>
+
     
 
   
@@ -52,14 +52,11 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-        <%# f.collection_select(:category_id, Category.all, :id, :name, {}, {class:“select-box”, id:“item-category”}) %>
-        <%# f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
-        <%# f.collection_select(:category_id, Category.all, :id, :name, {}, {class:“select-box”, id:“item-category”}) %>
       </div>
     </div>
     <%# /商品の詳細 %>
