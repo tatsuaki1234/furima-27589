@@ -6,4 +6,3 @@ end
 
 
 
-# item DELETE /items/:id(.:format)                        items#destroy
