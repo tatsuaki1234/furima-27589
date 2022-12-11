@@ -4,14 +4,29 @@ class OrdersController < ApplicationController
   end
 
   def create
-      # binding.pryは処理に不要なので削除する
-  # 値をDBへ保存する実装
+    # binding.pryは処理に不要なので削除する
+    # 値をDBへ保存する実装
+    @order = @order.new(order_params)
+
+    @donation = Donation.create(donation_params)
+    Address.create(address_params)
+    redirect_to root_path
   end
 
 
 private
 
-def メソッド名
-  params.permit(指定のカラムを記述する)
+def order_params
+  params.permit(:post_code, :city_code, :area_id, :post_number, :building_name, :phone_number).merge(order_id: @order.id)
+  # params.require(:item).permit(:name, :image, :content, :category_id, :condition_id, :postage_id, :area_id, :scheduled_delivery_id, :price).merge(user_id: current_user.id)
+  # params.permit(:post_code, :city_code, :area_id, :post_number, :building_name, :phone_number).merge(order_id)
+
+  def donation_params
+    params.permit(:price).merge(user_id: current_user.id)
+  end
+
+  def address_params
+    params.permit(:postal_code, :prefecture, :city, :house_number, :building_name).merge(donation_id: @donation.id)
+  end
 end
 end

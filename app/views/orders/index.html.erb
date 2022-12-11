@@ -31,8 +31,10 @@
     </div>
     <%# /支払額の表示 %>
 
-    <%= form_with id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with id: item_orders(@order.id), class: 'transaction-form-wrap',local: true do |f| %>
+    <%# form_with model: @item, local: true do |f|↑はなぜ、mode:じゃなくてid:なのか？ %>
     <%# カード情報の入力 %>
+    <%# item_orders GET    /items/:item_id/orders(.:format)         orders#index %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
         クレジットカード情報入力
