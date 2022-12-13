@@ -11,10 +11,10 @@ RSpec.describe OrderAddress, type: :model do
 
   describe '商品新規登録' do
     context '商品新規登録できるとき' do
-      it 'post_code、city_code、area_id、post_number、phone_number、building_name が存在すれば登録できる' do
+      it 'post_code、city_code、area_id、post_number、phone_number、building_name、tokenが存在すれば登録できる' do
         expect(@order_address).to be_valid
       end
-      it 'building_nameが空でも、post_code、city_code、area_id、post_number、phone_number、が存在すれば登録できる' do
+      it 'building_nameが空でも、post_code、city_code、area_id、post_number、phone_number、tokenが存在すれば登録できる' do
         @order_address.building_name = ""
         expect(@order_address).to be_valid
       end
@@ -81,6 +81,11 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Item can't be blank")
       end  
+      it 'tokenが空では登録できない' do
+        @order_address.token = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end
