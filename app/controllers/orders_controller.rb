@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [ :index ]
   def index
     @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
@@ -29,5 +30,4 @@ class OrdersController < ApplicationController
   end
 end
 
-# Payjp.api_key = sk_test_bfdb866e7228ca3b383cd97c
-# Payjp.setPublicKey("pk_test_93f5dfe8ec7c9816fcc122d1");
+
