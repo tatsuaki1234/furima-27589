@@ -30,7 +30,7 @@
       </p>
     </div>
     <%# /支払額の表示 %>
-    <%= form_with model: @order_address, url: "/items/:item_id/orders", class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with model: @order_address, url: item_orders_path(@item.id), class: 'transaction-form-wrap',local: true do |f| %>
     <%# form_with id: "/items/:item_id/orders", class: 'transaction-form-wrap',local: true do |f| %>
     <%# form_with id: item_orders(@order.id), class: 'transaction-form-wrap',local: true do |f| %>
     <%# form_with model: @item, local: true do |f|↑はなぜ、mode:じゃなくてid:なのか？ %>

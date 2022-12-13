@@ -6,20 +6,21 @@ class OrdersController < ApplicationController
     # @donation_address = DonationAddress.new
     #  @order_address = OrderAddress.new
     @item = Item.find(params[:item_id])
+    # @user = User.find(params[:id])
     @order_address = OrderAddress.new
   end
 
   def create
     # binding.pryは処理に不要なので削除する
     # 値をDBへ保存する実装
-    @order = @order.new(order_params)
-
+    # @order = Order.new(order_params)
+    # @order_address = OrderAddress.new(order_params)
     # @donation = Donation.create(donation_params)
     # Address.create(address_params)
     # redirect_to root_path
 
 
-
+    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new(order_params)
     if @order_address.valid?
       @order_address.save
@@ -36,7 +37,9 @@ class OrdersController < ApplicationController
     # params.permit(:post_code, :city_code, :area_id, :post_number, :building_name, :phone_number).merge(order_id: @order.id)
     # params.require(:item).permit(:name, :image, :content, :category_id, :condition_id, :postage_id, :area_id, :scheduled_delivery_id, :price).merge(user_id: current_user.id)
     # params.permit(:post_code, :city_code, :area_id, :post_number, :building_name, :phone_number).merge(order_id)
-    params.require(:order_address).permit(:post_code, :city_code, :area_id, :post_number, :building_name, :phone_number).merge(order_id: @order.id)
+    # params.require(:order_address).permit(:post_code, :city_code, :area_id, :post_number, :building_name, :phone_number).merge(order_id: @order.id)
+    params.require(:order_address).permit(:post_code, :city_code, :area_id, :post_number, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
+    # price token
   end
   # def donation_params
   #   params.permit(:price).merge(user_id: current_user.id)
