@@ -7,7 +7,3 @@ Rails.application.routes.draw do
 end
 
 
-
-# item_orders GET    /items/:item_id/orders(.:format)           orders#index
-# item_orders POST   /items/:item_id/orders(.:format)           orders#create
-#itemコントローラーにorderが子としてネストされている
