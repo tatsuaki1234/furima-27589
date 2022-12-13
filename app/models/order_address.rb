@@ -12,6 +12,7 @@ class OrderAddress
     validates :phone_number, presence: true, format: {with: /\A\d{10}$|^\d{11}\z/,  message: "は半角数値の10桁から11桁以内に入力してください"}
     validates :user_id, presence: true
     validates :item_id, presence: true
+    validates :token, presence: true
 
     #都道府県の選択が「---」の時は保存できないようにする
     validates :area_id, numericality: { other_than: 0 , message: "can't be blank"}
