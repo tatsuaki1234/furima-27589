@@ -2,7 +2,6 @@ class OrderAddress
   include ActiveModel::Model
 
   attr_accessor :post_code, :city_code, :area_id, :post_number, :building_name, :phone_number, :user_id, :item_id, :token
-  # attr_accessor :post_code, :city_code, :area_id, :post_number, :building_name, :phone_number, :user_id, :item_id
 
   # ここにバリデーションの処理を書く
       #空の投稿を保存できないようにする
@@ -21,9 +20,7 @@ class OrderAddress
 
     # 各テーブルにデータを保存する処理を書く
   def save
-    #この時点では "token"=>"tok_773732741ef3c8003c8187bcc429"あり。
     order = Order.create(user_id: user_id, item_id: item_id)
-    # order = Order.create(user_id: user_id, item_id: item_id)
     Address.create(post_code: post_code, city_code: city_code, area_id: area_id, post_number: post_number, building_name: building_name, phone_number:  phone_number, order_id: order.id)
   end
 end
