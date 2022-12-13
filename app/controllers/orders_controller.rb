@@ -5,11 +5,14 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     if @item.user_id != current_user.id
       @order_address = OrderAddress.new
-      unless @item.order.present?
-        redirect_to root_path
-      else
-        redirect_to root_path
-      end
+    else
+      redirect_to root_path
+    end
+    unless @item.order.present?
+      @order_address = OrderAddress.new
+    end
+    if @item.order.present? && @item.user_id != current_user.id
+      redirect_to root_path
     end
   end
 
