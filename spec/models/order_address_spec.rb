@@ -32,7 +32,7 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include("City code can't be blank")
       end
       it 'area_idが[---]では登録できない' do
-        @order_address.area_id = '0'
+        @order_address.area_id = '1'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Area can't be blank")
       end
