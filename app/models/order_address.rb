@@ -15,7 +15,7 @@ class OrderAddress
     validates :token, presence: true
 
     #都道府県の選択が「---」の時は保存できないようにする
-    validates :area_id, numericality: { other_than: 0 , message: "can't be blank"}
+    validates :area_id, numericality: { other_than: 1 , message: "can't be blank"}
 
 
 
