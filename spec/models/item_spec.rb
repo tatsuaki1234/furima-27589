@@ -35,7 +35,7 @@ RSpec.describe Item, type: :model do
         end          
         it 'condition_idが空では登録できない' do
           @item.condition_id = '1'
-          @item.valid?
+          @item.val
           expect(@item.errors.full_messages).to include("Condition can't be blank")
         end          
         it 'postage_idが空では登録できない' do
