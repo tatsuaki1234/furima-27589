@@ -23,11 +23,11 @@ class Item < ApplicationRecord
 
 
     #ジャンルの選択が「---」の時は保存できないようにする
-  validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :condition_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :postage_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :area_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :scheduled_delivery_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :category_id, numericality: { other_than: 1, message: "は---以外を入力してください" }
+  validates :condition_id, numericality: { other_than: 1, message: "は---以外を入力してください" }
+  validates :postage_id, numericality: { other_than: 1, message: "は---以外を入力してください" }
+  validates :area_id, numericality: { other_than: 1, message: "は---以外を入力してください" }
+  validates :scheduled_delivery_id, numericality: { other_than: 1, message: "は---以外を入力してください" }
 
   # validates_inclusion_of :price, in: (300..9999999), format: {with: /\A[0-9]+\z/ } 
   validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
