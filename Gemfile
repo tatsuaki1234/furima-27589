@@ -76,3 +76,9 @@ gem 'active_hash'
 gem 'payjp'
 
 gem 'rails-i18n'
+
+gem "aws-sdk-s3", require: false
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
