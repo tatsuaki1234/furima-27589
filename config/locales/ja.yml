@@ -18,6 +18,10 @@ ja:
         scheduled_delivery_id: 発送元地域
         price: 商品金額
         image: 画像
+        user: ユーザー
+      order:
+        user: ユーザー
+        item: 商品
   activemodel:
     attributes:
       order_address:
@@ -27,7 +31,9 @@ ja:
         post_number: 番地
         phone_number: 電話番号
         token: クレジット情報
-
+        user_id: ユーザー
+        item_id: 商品
+        token: クレジットカード情報
 
 
 
